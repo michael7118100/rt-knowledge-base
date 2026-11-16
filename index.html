@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RT Clinical Wiki | 呼吸治療臨床知識庫</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- 引入 marked.js 用於在純靜態網頁渲染 Markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="badge">RESPIRATORY THERAPY KNOWLEDGE BASE</div>
+      <h1>呼吸治療臨床知識庫</h1>
+      <p class="subtitle">機械通氣・重症照護・呼吸器脫離・肺部復原・儀器管理標準化筆記</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 搜尋與分類控制列 -->
+    <section class="controls">
+      <div class="categories" id="category-filters">
+        <button class="filter-btn active" data-category="ALL">全部主題</button>
+        <button class="filter-btn" data-category="機械通氣">機械通氣</button>
+        <button class="filter-btn" data-category="呼吸器脫離">呼吸器脫離</button>
+        <button class="filter-btn" data-category="肺部復原">肺部復原</button>
+        <button class="filter-btn" data-category="儀器與耗材">儀器與耗材</button>
+      </div>
+      <input type="text" id="search-input" class="search-box" placeholder="搜尋關鍵字（例如：RSBI、PEEP、脫離）...">
+    </section>
+
+    <!-- 知識卡片網格區 -->
+    <section class="card-grid" id="card-grid">
+      <!-- 卡片將由 app.js 動態載入 -->
+    </section>
+  </main>
+
+  <!-- 文章閱讀彈窗 (Modal) -->
+  <div id="article-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span id="modal-category" class="card-tag">分類</span>
+        <button id="close-modal" class="close-btn" aria-label="關閉">&times;</button>
+      </div>
+      <div id="modal-body" class="markdown-body"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Powered by Structured <code>AGENTS.md</code> Architecture | 僅供臨床學術與教學整理參考</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
